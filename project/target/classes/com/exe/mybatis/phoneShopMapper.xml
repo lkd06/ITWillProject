@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-/mybatis.org/DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="phoneshopmapper">
+	
+	<select id="maxNum" resultType="int">
+		select nvl(max(num),0) from pshop
+	</select>
+	
+	<insert id="insertData" parameterType="com.exe.dto.PhoneShopDTO">
+		insert into pshop (num,subject,price,content,imageName) 
+		values (#{num},#{subject},#{price},#{content},#{imageName})
+	</insert>
+	
+	<select id="getDataCount" resultType="int" parameterType="map">
+		select nvl(count(*),0) from pshop
+	</select>
+	
+	<select id="getLists" resultType="com.exe.dto.PhoneShopDTO" parameterType="map">
+<![CDATA[
+		select * from (
+		select rownum rnum,data.* from (
+		select num,subject,price,content,imageName from pshop 
+		order by num desc) data) 
+		where rnum >= #{start} and rnum <= #{end}
+]]>
+	</select>
+	
+	<delete id="deleteData" parameterType="int">
+		delete pshop where num=#{num}
+	</delete>
+	
+	<select id="getReadData" parameterType="int" resultType="com.exe.dto.PhoneShopDTO">
+		select num,subject,price,content,imageName from pshop where num=#{num}
+	</select>
+	
+</mapper>

@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plan0>
+	<플랜라지>
+		<subject>플랜라지</subject>
+		<content1>무엇이든 할 수 있는 '0'을 위한 혜택</content1>
+		<content2>
+		- 데이터 100GB, 영상, 부가통화 300분 제공&lt;br&gt;
+		- 가족데이터 최대 20GB공유&lt;br&gt;
+		- VIP멤버십, FLO앤데이터, wavve앤데이터 중 선택&lt;br&gt;
+		</content2>
+		<content3>
+		</content3>
+		<info1>
+		</info1>
+		<image>
+		</image>
+		<content4>다양한 부가서비스 혜택</content4>
+		<vip>
+		멤버십 VIP&lt;br&gt;
+		-연 6회 영화 무료 관람 숙박, 워터파크 최대 78% 할인 편의점 등 다양한 제휴 제공&lt;br&gt;
+		※1~15일에 요금제 가입 시 다음 달 1일/16일 이후 가입 시 다음 달 16일에 자동으로 VIP승급&lt;br&gt;
+		</vip>
+		<free>
+		초시대의 '동영상' 생활&lt;br&gt;
+		-wavve 앤 데이터 월정액 무료 전용데이터 매일 1GB로 80개 채널, 22만개 드라마, 예능 즐기기&lt;br&gt;
+		</free>
+		<flo>
+		초시대의 '음악' 생활&lt;br&gt;
+		-FLO 모바일 무제한 듣기 무료&lt;br&gt;
+		-전용데이터 매월 3GB로 최신 음악 무제한 듣기&lt;br&gt;
+		</flo>
+		<content5>
+		</content5>
+		<image2>
+		&lt;font size=2pt;&gt;골라쓰는 데이터 무제한 혜택, 음성통화 무제한 및 영상, 부가 통화 300분제공&lt;br&gt;
+		(100GB를 다 쓰면 5Mbps 속도로 계속 사용)&lt;br&gt;&lt;/font&gt;
+		&lt;img src="/project/resources/data/라지.png"/&gt;&lt;br&gt;&lt;br&gt;
+		
+		&lt;font size=6pt; style="font-weight: bold;"&gt;가족끼리 20GB까지 데이터 공유&lt;br&gt;&lt;/font&gt;
+		&lt;img src="/project/resources/data/0plan.png"/&gt;
+		</image2>
+	</플랜라지>
+	
+	<플랜미디엄>
+		<subject>플랜미디엄</subject>
+		<content1>무엇이든 할 수 있는 '0'을 위한 혜택</content1>
+		<content2>
+		- 데이터 6GB, 영상, 부가통화 300분 제공&lt;br&gt;
+		- FLO 300회 무료 듣기&lt;br&gt;
+		</content2>
+		<content3>
+		</content3>
+		<info1>
+		</info1>
+		<image>
+		</image>
+		<content4>다양한 부가서비스 혜택</content4>
+		<vip>
+		주말&lt;br&gt;
+		-주말 일 2GB+3Mbps 속도로 데이터 무제한 제공&lt;br&gt;
+		</vip>
+		<free>
+		심야&lt;br&gt;
+		-매월 00시부터 07시까지 속도제한 없는 데이터 완전무제한 제공&lt;br&gt;
+		</free>
+		<flo>
+		초시대의 '음악' 생활&lt;br&gt;
+		-전용데이터 매월 300회 최신 음악 무료 듣기&lt;br&gt;
+		</flo>
+		<content5>
+		</content5>
+		<image2>
+		&lt;font size=2pt;&gt;골라쓰는 데이터 무제한 혜택, 음성통화 무제한 및 영상, 부가 통화 300분제공&lt;br&gt;
+		(6GB를 다 쓰면 1Mbps 속도로 계속 사용)&lt;br&gt;&lt;/font&gt;
+		&lt;img src="/project/resources/data/미디엄.png"/&gt;&lt;br&gt;&lt;br&gt;
+		
+		&lt;font size=6pt; style="font-weight: bold;"&gt;가족끼리 20GB까지 데이터 공유&lt;br&gt;&lt;/font&gt;
+		&lt;img src="/project/resources/data/0plan.png"/&gt;
+		</image2>
+	</플랜미디엄>
+	
+	<플랜스몰>
+		<subject>플랜스몰</subject>
+		<content1>무엇이든 할 수 있는 '0'을 위한 혜택</content1>
+		<content2>
+		- 데이터 2GB, 영상, 부가통화 100분 제공&lt;br&gt;
+		- T가족모아 데이터 이용 혜택(단, 받기만 가능)&lt;br&gt;
+		- 매일 00시~07시 사용 데이터 75%할인&lt;br&gt;
+		</content2>
+		<content3>
+		</content3>
+		<info1>
+		</info1>
+		<image>
+		</image>
+		<content4>다양한 부가서비스 혜택</content4>
+		<vip>
+		주말&lt;br&gt;
+		-주말 일 2GB+3Mbps 속도로 데이터 무제한 제공&lt;br&gt;
+		</vip>
+		<free>
+		심야&lt;br&gt;
+		-매월 00시부터 07시까지 속도제한 없는 데이터 완전무제한 제공&lt;br&gt;
+		</free>
+		<flo>
+		초시대의 '음악' 생활&lt;br&gt;
+		-전용데이터 매월 300회 최신 음악 무료 듣기&lt;br&gt;
+		</flo>
+		<content5>
+		</content5>
+		<image2>
+		&lt;font size=2pt;&gt;골라쓰는 데이터 무제한 혜택, 음성통화 무제한 및 영상, 부가 통화 300분제공&lt;br&gt;
+		(2GB를 다 쓰면 400kbps 속도로 계속 사용)&lt;br&gt;&lt;/font&gt;
+		&lt;img src="/project/resources/data/스몰.png"/&gt;&lt;br&gt;&lt;br&gt;
+		
+		&lt;font size=5pt; style="font-weight: bold;"&gt;가족끼리 20GB까지 데이터 공유&lt;br&gt;&lt;/font&gt;
+		&lt;img src="/project/resources/data/0plan.png"/&gt;&lt;br&gt;
+		</image2>
+	</플랜스몰>
+
+</plan0>

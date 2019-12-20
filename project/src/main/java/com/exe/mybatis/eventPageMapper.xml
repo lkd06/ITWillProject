@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-/mybatis.org/DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="eventpagemapper">
+
+<select id="maxNum" resultType="int">
+	select nvl(max(num),0) from eventpage
+</select>
+
+
+<insert id="insertData" parameterType="com.exe.dto.EventPageDTO">
+	insert into eventpage (num, category, subject, content, ipAddr, startDay, endDay, subjectImageName, contentImageName, hitCount, created) 
+	values (#{num }, #{category }, #{subject }, #{content }, #{ipAddr }, #{startDay }, #{endDay }, #{subjectImageName }, #{contentImageName }, 0, sysdate)
+</insert>
+
+
+<select id="getDataCount" resultType="int" parameterType="map">
+	select nvl(count(*),0) from eventpage 
+	where ${searchKey} like '%' || #{category} || '%'
+</select>
+
+
+<select id="getLists" parameterType="map" resultType="com.exe.dto.EventPageDTO">
+<![CDATA[
+	select * from (
+	select rownum rnum,data.* from (
+	select num, category, subject, content, ipAddr, to_char(startDay, 'YYYY.MM.DD') startDay, to_char(endDay, 'YYYY.MM.DD') endDay, subjectImageName, contentImageName, hitCount,to_char(created,'YYYY.MM.DD') created from eventpage 
+	where ${searchKey} like '%' || #{category} || '%'
+	order by num desc) data) 
+	where rnum >= #{start} and rnum <= #{end}
+]]>
+</select>
+
+
+<select id="preReadData" parameterType="map" resultType="com.exe.dto.EventPageDTO">
+<![CDATA[
+	select rownum, data.* from (
+	select num, subject from eventpage 
+	where (${searchKey} like '%' || #{category} || '%')
+	and  (num>${num }) order By num asc) data
+	where rownum=1
+]]>
+</select>
+
+
+<select id="nextReadData" parameterType="map" resultType="com.exe.dto.EventPageDTO">
+<![CDATA[
+	select rownum, data.* from (
+	select num, subject from eventpage 
+	where (${searchKey} like '%' || #{category} || '%')
+	and  (num<${num }) order By num desc) data
+	where rownum=1
+]]>
+</select>
+
+
+<update id="hitCount" parameterType="int">
+	update eventpage set hitCount = hitCount + 1 where num=#{num}
+</update>
+
+
+<select id="getReadData" parameterType="int" resultType="com.exe.dto.EventPageDTO">
+	select num, category, subject, content, ipAddr, to_char(startDay, 'YYYY.MM.DD') startDay, to_char(endDay, 'YYYY.MM.DD') endDay, subjectImageName, contentImageName, hitCount, to_char(created,'YYYY.MM.DD') created from eventpage 
+	where num=#{num} and ${searchKey} like '%' || #{category} || '%'
+</select>
+
+
+<delete id="deleteData" parameterType="int">
+	delete eventpage where num=#{num}
+</delete>
+
+</mapper>

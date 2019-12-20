@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-/mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="boardlistmapper">
+
+<select id="maxNum" resultType="int">
+   select nvl(max(num),0) from boardList
+</select>
+
+<insert id="insertData" parameterType="com.exe.dto.boardListDTO">
+   insert into boardList(num,subject,content,created,hitCount,category2,ipAddr)
+   values (#{num},#{subject},#{content},sysdate,0,#{category2},#{ipAddr})
+</insert>
+
+<select id="getDataCount" parameterType="map" resultType="int">
+   select nvl(count(*),0) from boardList
+   where ${searchKey} like '%' || #{searchValue} || '%'
+</select>
+
+<select id="getLists" parameterType="map" resultType="com.exe.dto.boardListDTO">
+   select * from (
+   select rownum rnum,data.* from (
+   select num,userName,subject,content,hitCount,category2,ipAddr,
+   to_char(created, 'YYYY-MM-DD') created
+   from boardList
+   where ${searchKey} like '%' || #{searchValue} || '%'
+   order by num desc) data)
+<![CDATA[
+   where rnum>=#{start} and rnum<=#{end}
+]]>
+</select>
+
+<update id="updateHitCount" parameterType="int">
+   update boardList set hitCount=hitCount+1 where num=#{num}
+</update>
+
+<select id="getReadData" parameterType="int" resultType="com.exe.dto.boardListDTO">
+   select num,subject,content,to_char(created, 'YYYY-MM-DD') created,hitCount,category2,ipAddr from boardList where num=#{num}
+</select>
+
+<update id="updateData" parameterType="com.exe.dto.boardListDTO">
+   update boardList set content=#{content}
+   where num=#{num}
+</update>
+
+<delete id="deleteData" parameterType="int">
+   delete from boardList where num=#{num}
+</delete>
+
+</mapper>

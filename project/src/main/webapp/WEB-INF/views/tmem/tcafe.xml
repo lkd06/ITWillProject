@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<cafe>
+	<droptop> 
+		<brandName>드롭탑</brandName> 
+		<info1>최고의 장소에서 즐기는 최고의 커피</info1>
+		<info2>커피가 맛있는 카페 드롭탑은 연구센터를 별도로 두어 커피 맛 향상을 위해 지속적인 개발을 하고 있습니다. &lt;br&gt;
+		T 멤버십 할인과 함께 풍미 가득한 커피를 즐겨보세요.
+		</info2>
+		<benefit>
+		 - T 멤버십 전 고객 15% 할인	
+		</benefit>
+		<note>
+		- 1일 1회 (최대 20만원)&lt;br&gt;
+		- 타 할인(세트할인 포함) 중복 적용 불가&lt;br&gt;
+		- 제조 음료 한정(병/ 캔/ MD상품/ 아이스탑/ 베이커리 제외)&lt;br&gt;
+		- 특수매장 및 가맹점주 비동의 매장 제외
+		</note>
+		<tel>
+		-TEL : 1544-0070
+
+		</tel>
+		<image>
+		droptop.png
+		</image>
+	</droptop>
+	
+	<smoothieKing> 
+		<brandName>스무디킹</brandName> 
+		<info1>당신을 위한 맛있는 새로움 스무디킹</info1>
+		<info2>스무디 한 잔에 과일은 물론 프로틴, 비타민 등의 영양소까지! 균형 잡힌 음료를 제공하는 스무디킹은 건강하고 &lt;br&gt;
+		활기찬 라이프스타일을 위해 끊임 없이 돕고 있습니다.</info2>
+		<benefit>
+		VIP/Gold 20% 할인&lt;br&gt;
+		Silver 10% 할인		
+		</benefit>
+		<note>
+		- 스무디만 할인 가능 (프로모션 음료 할인 불가)&lt;br&gt;
+		- T멤버십 제휴 신용카드 및 SK Pay 할인 혜택 사용 불가&lt;br&gt;
+		- 1일 1회, 이용금액의 최대 20만원 내에서 할인 적용&lt;br&gt;
+		- 타 제휴카드 및 쿠폰과 동시 사용 불가, 스무디킹 멤버십 적립과 중복 적용 불가&lt;br&gt;
+		- 제외 매장: 스무디킹 홈페이지 참조
+		</note>
+		<tel>
+		- TEL : 080-512-2020&lt;br&gt;
+		- HOME : www.smoothieking.co.kr
+		</tel>
+		<image>
+		smoothie.png
+		</image>
+	</smoothieKing>
+	
+	<angelInus> 
+		<brandName>엔젤리너스</brandName> 
+		<info1>당신을 미소 짓게 하는 천사의 커피</info1>
+		<info2>기분 좋은 경험! 우리는 끊임없이 고객의 기분 좋은 경험을 만들어 가는 브랜드가 되고자 합니다.</info2>
+		<benefit>
+		- VIP/골드 20% 할인&lt;br&gt;
+		- 실버 15% 할인&lt;br&gt;
+		- 혜택 대상 음료: 아메리카노 / 카페라떼 S, R 사이즈&lt;br&gt;
+		</benefit>
+		<note>
+			- 1일 1회 최대 20만원까지 이용 가능&lt;br&gt;
+			- 할인금액 원단위 이하 절사&lt;br&gt;
+			- L.point 적립 불가&lt;br&gt;
+			- 사이즈 및 타 제품 교환 불가&lt;br&gt;
+			- 타 할인과 중복 적용 불가&lt;br&gt;
+			- 딜리버리 또는 카카오챗봇 주문 시 사용 불가(매장 사용만 가능)&lt;br&gt;
+			- 특수점(공항, 리조트, 휴게소, 마트, 몰 등) 일부 점포 사용 불가&lt;br&gt;
+					</note>
+		<tel>
+		- TEL : 02-709-1114&lt;br&gt;
+		- HOME : www.angelinus.com
+		</tel>
+		<image>
+		angelin.png
+		</image>
+	</angelInus>
+</cafe>

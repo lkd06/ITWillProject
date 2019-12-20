@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/mvc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
+	
+	<!-- Enables the Spring MVC @Controller programming model -->
+	<annotation-driven />
+
+	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
+	<resources mapping="/resources/**" location="/resources/" />
+
+	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
+	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<beans:property name="prefix" value="/WEB-INF/views/" />
+		<beans:property name="suffix" value=".jsp" />
+	</beans:bean>
+	
+	<context:component-scan base-package="com.exe.project" />
+	
+	<!-- setter 필요 -->
+	<beans:bean id="memberDAO" class="com.exe.dao.MemberDAO">
+		<beans:property name="sessionTemplate" ref="sessionTemplate"/>
+	</beans:bean>
+	
+	<!-- setter 필요 -->
+	<beans:bean id="graphDAO" class="com.exe.graph.Graph">
+		<beans:property name="sessionTemplate" ref="sessionTemplate"/>
+	</beans:bean>
+	
+	<!-- setter 필요 -->
+	<beans:bean id="phoneshopDAO" class="com.exe.dao.PhoneShopDAO">
+		<beans:property name="sessionTemplate" ref="sessionTemplate"/>
+	</beans:bean>
+	
+	<!-- setter 필요 -->
+	<beans:bean id="acshopDAO" class="com.exe.dao.AcShopDAO">
+		<beans:property name="sessionTemplate" ref="sessionTemplate"/>
+	</beans:bean>
+	
+	<!-- setter 필요 -->
+	<beans:bean id="qnaDAO" class="com.exe.dao.QnaDAO">
+		<beans:property name="sessionTemplate" ref="sessionTemplate"/>
+	</beans:bean>
+	
+	<!-- setter 필요 -->
+	<beans:bean id="notiDAO" class="com.exe.dao.NotiDAO">
+		<beans:property name="sessionTemplate" ref="sessionTemplate"/>
+	</beans:bean>
+	
+	<!-- setter 필요 -->
+	<beans:bean id="payDAO" class="com.exe.dao.payDAO">
+		<beans:property name="sessionTemplate" ref="sessionTemplate"/>
+	</beans:bean>
+	
+	<!-- setter 필요 -->
+	<beans:bean id="tmemDAO" class="com.exe.dao.TmemDAO">
+		<beans:property name="sessionTemplate" ref="sessionTemplate"/>
+	</beans:bean>
+	
+	<!-- setter 필요 -->
+	<beans:bean id="RegionDAO" class="com.exe.dao.RegionDAO">
+		<beans:property name="sessionTemplate" ref="sessionTemplate"/>
+	</beans:bean>
+	
+	<!-- setter 필요 -->
+	<beans:bean id="priceDAO" class="com.exe.dao.PriceDAO">
+		<beans:property name="sessionTemplate" ref="sessionTemplate"/>
+	</beans:bean>
+	
+	<!-- setter 필요 -->
+	<beans:bean id="serviceDAO" class="com.exe.dao.ServiceDAO">
+		<beans:property name="sessionTemplate" ref="sessionTemplate"/>
+	</beans:bean>
+	
+	<!-- setter 필요 -->
+	<beans:bean id="packDAO" class="com.exe.dao.packageDAO">
+		<beans:property name="sessionTemplate" ref="sessionTemplate"/>
+	</beans:bean>
+	
+	<!-- setter 필요 -->
+	<beans:bean id="eventpageDAO" class="com.exe.dao.EventPageDAO">
+		<beans:property name="sessionTemplate" ref="sessionTemplate"/>
+	</beans:bean>
+	
+	<!-- setter 필요 -->
+	<beans:bean id="eventcaldao" class="com.exe.dao.EventCalDAO">
+		<beans:property name="sessionTemplate" ref="sessionTemplate"/>
+	</beans:bean>
+	
+	<beans:bean id="DateDataDAO" class="com.exe.dao.DateDataDAO"/>
+	
+	
+	<!-- setter 필요 -->
+	<beans:bean class="com.exe.dao.fileDAO" id="fileDAO">
+		<beans:property name="sessionTemplate" ref="sessionTemplate"/>
+	</beans:bean>
+	<beans:bean class="com.exe.dao.replyDAO" id="replyDAO">
+		<beans:property name="sessionTemplate" ref="sessionTemplate"/>
+	</beans:bean>
+	<beans:bean class="com.exe.dao.boardListDAO" id="boardListDAO">
+		<beans:property name="sessionTemplate" ref="sessionTemplate"/>
+	</beans:bean>
+	
+	<beans:bean class="com.exe.util.FileManager" id="fileM">
+	</beans:bean>
+	
+	
+	<beans:bean id="jacksonMessageConverter" class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter" />
+	
+	<beans:bean id="mailSender" class = "org.springframework.mail.javamail.JavaMailSenderImpl">
+      <beans:property name="host" value="smtp.gmail.com" />
+      <beans:property name="port" value="587" />
+      <beans:property name="username" value="lkd9361@gmail.com" />
+      <beans:property name="password" value="gufmvuatfmcqpuwn" />
+      <beans:property name="javaMailProperties">
+         <beans:props>
+               <beans:prop key="mail.transport.protocol">smtp</beans:prop>
+               <beans:prop key="mail.smtp.auth">true</beans:prop>
+               <beans:prop key="mail.smtp.starttls.enable">true</beans:prop>
+               <beans:prop key="mail.debug">true</beans:prop>
+         </beans:props>
+      </beans:property>
+    </beans:bean>
+	
+	
+	<beans:bean id="sessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
+		<beans:constructor-arg ref="sessionFactory"/>
+	</beans:bean>
+	
+	<beans:bean id="sessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<beans:property name="dataSource" ref="dataSource"/>
+		<beans:property name="configLocation" value="classpath:/mybatis-config.xml"/>
+	</beans:bean>
+	
+	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<beans:property name="maxUploadSize" value="10240000"/>
+		<beans:property name="maxInMemorySize" value="1024000"/>
+		<beans:property name="defaultEncoding" value="utf-8"/>
+	</beans:bean>
+	
+	<beans:bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		<beans:property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
+		<beans:property name="url" value="jdbc:oracle:thin:@192.168.16.22:1521:TestDB"/>
+		<beans:property name="username" value="suzi"/>
+		<beans:property name="password" value="a123"/>
+	</beans:bean>
+	
+	<beans:bean id="myUtil" class="com.exe.util.MyUtil"/>
+	
+</beans:beans>

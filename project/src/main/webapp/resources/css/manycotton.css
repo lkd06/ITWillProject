@@ -1,0 +1,190 @@
+@charset "UTF-8";
+/* service_main */
+.a{
+	font-size: 30px;
+	color: #000000;
+}
+	
+tr{
+	border-bottom: 1px solid;
+	height: 80px;
+}
+	
+.font{
+	color: red;
+	font-weight: bold;
+}
+
+.fontR{
+	color: red;
+}
+
+.top{
+	padding-top: 20px;
+}
+
+.right{
+	padding-right: 20px;
+}
+
+.left{
+	padding-left: 10px;
+}
+
+.tab{
+	width: 100%; 
+	color: #000000;
+}
+
+
+
+
+
+
+/* service_list_ok */
+.btn {
+  border: none;
+  outline: none;
+  background-color: #ffffff;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.active{
+  color:red;
+  font-weight: bold;
+}
+
+.oktd{
+	height: 50px; 
+	background-color: #f7f7f7; 
+	border-top:1px solid;  
+}
+
+.okbottom{
+	border-bottom: 1px solid #c0c0c0;
+}
+
+
+/* service_list */
+.a{
+	font-size: 30px;
+	color: #000000;
+}
+  	
+tr{
+	border-bottom: 1px solid;
+	height: 80px;
+}
+  	
+.font{
+	color: red;
+	font-weight: bold;
+}
+
+.divH{
+	height: 800px;
+}
+
+/* service_view */
+#btn2 {
+	width: 280px;
+	height: 40px;
+	font-size:16px;
+	font-family: 'Nanum Gothic';
+	color: white;
+	line-height: 40px;
+	text-align: center;
+	background: #f76252;
+	border: solid 1px grey;
+	border-radius: 20px;
+}
+
+.tg{
+	height:100px;
+	valign:middle;
+	text-align:left;
+	padding:30px;
+	margin:auto;
+	border-bottom:1px solid #e0e0e0;
+	border-collapse:collapse
+}
+
+.tab{
+	color:#000000;
+	font-size:10pt;
+    width:800px;
+    height:500px;
+    overflow:hidden;
+}
+ 
+.tab ul{
+    padding:0;
+    margin:0;
+    list-style:none;
+    width:100%:
+    height:auto;
+    overflow:hidden;
+}
+ 
+.tab ul li{
+    display:inline-block;
+    width:20%;
+    float:left;
+    line-height:40px;
+    text-align:center;
+    cursor:pointer;
+}
+ 
+.tab ul li:hover,
+.tab ul li.on{
+    background:#e0e0e0;
+}
+ 
+.tab .conBox{
+    width:100%;
+    height:auto;
+    overflow:hidden;
+    min-height:200px;
+    display:none;
+    text-align:left;
+}
+ 
+.tab .conBox.on{
+    display:block;
+}
+
+.divH3{
+	height: 300px;	
+}
+	
+.left2{
+	padding-left: 20%;
+}
+
+.colorF{
+	color: #ffffff;
+}
+
+.fontB{
+	font-weight: bold;
+}
+
+.divbgc{
+	background-color: #4e67b5;
+	width: 100%;
+	font-size: 30pt;
+}
+
+.wid1{
+	width: 100%;
+}
+
+.textL{
+	text-align: left;
+}
+
+.divbor{
+	
+}
+

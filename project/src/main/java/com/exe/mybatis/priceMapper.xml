@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-/mybatis.org/DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="pricemapper">
+
+<select id="getMaxNum" resultType="int">
+	select nvl(max(num),0) from price
+</select>
+
+<select id="getDesc" parameterType="map" resultType="com.exe.dto.PriceDTO" >
+	select * from ( select rownum rnum, data.* from (select num, subject, gb, tel, content, price, list, content2 from price order by price desc ) data)
+</select>
+
+<select id="getAsc" parameterType="map" resultType="com.exe.dto.PriceDTO" >
+	select * from ( select rownum rnum, data.* from (select num, subject, gb, tel, content, price, list, content2 from price order by price asc ) data)
+</select>
+	
+<select id="listOne" parameterType="int" resultType="com.exe.dto.PriceDTO">
+	select num, subject, gb, tel, content, price, list, content2 from price where num = #{num}
+</select>	
+
+<select id="content2" parameterType="map" resultType="com.exe.dto.PriceDTO">
+	select * from ( select rownum rnum, data.* from (select num, subject, gb, tel, content, price, list, content2  from price where content2 like '%' || #{content2} || '%')  data)
+</select>	
+	
+<select id="getDataCount" resultType="int">
+	select nvl(count(*),0) from price
+</select>	
+	
+</mapper>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-/mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="replymapper">
+
+<select id="maxNum" resultType="int">
+   select nvl(max(replyNum),0) from reply
+</select>
+
+ 
+<insert id="insertReply" parameterType="com.exe.dto.replyDTO">
+   insert into reply(replyNum,num,content,originalCreated)
+   values (#{replyNum},#{num},#{content},sysdate)
+</insert>
+
+<select id="getDataCount" parameterType="map" resultType="int">
+   select nvl(count(*),0) from reply
+</select>
+
+<select id="getReplyList" parameterType="map" resultType="com.exe.dto.replyDTO">
+   select * from (
+   select rownum rnum,data.* from (
+   select num,replyNum,content,name,
+   to_char(sysdate, 'YYYY-MM-DD') originalCreated
+   from reply 
+   order by replyNum desc) data)
+   where num=#{num}
+</select>
+
+<select id="oneReply" parameterType="int" resultType="com.exe.dto.replyDTO">
+   select num,replyNum,name,content,originalCreated
+   from reply where replyNum=#{replyNum}
+</select>
+
+<update id="updateReply" parameterType="com.exe.dto.replyDTO">
+   update reply set content=#{content},originalCreated=to_char(sysdate, 'YYYY-MM-DD')
+   where replyNum=#{replyNum}
+</update>
+
+<delete id="deleteReply" parameterType="int">
+   delete from reply
+   where replyNum=#{replyNum}
+</delete>  
+
+
+
+</mapper>

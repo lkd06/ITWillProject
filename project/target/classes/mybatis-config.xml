@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+PUBLIC "-/mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+	<properties>
+		<property name="driver" value="oracle.jdbc.driver.OracleDriver"/>
+		<property name="url" value="jdbc:oracle:thin:@192.168.16.22:1521:TestDB"/>
+		<property name="username" value="suzi"/>
+		<property name="password" value="a123"/>
+	</properties>
+
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC"/>
+			
+			<dataSource type="POOLED">
+				<property name="driver" value="${driver}"/>
+				<property name="url" value="${url}"/>
+				<property name="username" value="${username}"/>
+				<property name="password" value="${password}"/>
+			</dataSource>
+		</environment>
+	</environments>
+
+	<mappers>
+		<mapper resource="com/exe/mybatis/memberMapper.xml"/>
+		<mapper resource="com/exe/mybatis/phoneShopMapper.xml"/>
+		<mapper resource="com/exe/mybatis/acShopMapper.xml"/>
+		<mapper resource="com/exe/mybatis/qnaMapper.xml"/>
+		<mapper resource="com/exe/mybatis/notiMapper.xml"/>
+		<mapper resource="com/exe/mybatis/payMapper.xml"/>
+		<mapper resource="com/exe/mybatis/regionmapper.xml"/>
+		<mapper resource="com/exe/mybatis/priceMapper.xml"/>
+		<mapper resource="com/exe/mybatis/graphMapper.xml"/>
+		<mapper resource="com/exe/mybatis/serviceMapper.xml"/>
+		<mapper resource="com/exe/mybatis/packageMapper.xml"/>
+		<mapper resource="com/exe/mybatis/eventPageMapper.xml"/>
+		<mapper resource="com/exe/mybatis/eventCalMapper.xml"/>
+		<mapper resource="com/exe/mybatis/BoardMapper.xml"/>
+		<mapper resource="com/exe/mybatis/ReplyMapper.xml"/>
+		<mapper resource="com/exe/mybatis/FileMapper.xml"/>
+	</mappers>
+
+</configuration>

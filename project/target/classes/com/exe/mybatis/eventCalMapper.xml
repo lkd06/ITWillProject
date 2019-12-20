@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-/mybatis.org/DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="calendarmapper">
+
+	<insert id="insertData" parameterType="map">
+		insert into calendar(mm,dd,phone) values (#{month},#{date},to_char(#{phone}))
+	</insert>
+	
+	<select id="logincheck" parameterType="map" resultType="java.lang.String">
+		select dd from calendar where phone=#{phone} and mm=#{month} order by dd 
+	</select>
+	
+	<select id="checkrecord" parameterType="map" resultType="int">
+		select nvl(count(*),0) from calendar where phone=#{mem.phone} and mm=#{month} and dd=#{date}
+	</select>
+ 
+	 <select id="countdate" parameterType="map" resultType="int">
+		select nvl(count(*),0) from calendar where phone=to_char(#{dto.phone}) and mm=#{month}
+	</select>
+	
+	<select id="checkRecord" parameterType="com.exe.dto.MemberDTO" resultType="String">
+		select eventpoint from users where phone=to_char(#{phone})
+	</select>
+
+	
+	<update id="updateRecord" parameterType="map">
+		update users set eventpoint=eventpoint+#{eventPoint} where phone=to_char(#{dto.phone})
+	</update>
+	
+
+</mapper>

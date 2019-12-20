@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-/mybatis.org/DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="packmapper">
+	<select id="maxNum" resultType="int">
+		select nvl(max(num),0) from package
+	</select>
+
+	<select id="findDataC" resultType="int" parameterType="map">
+		select nvl(count(*),0) from package where phone=to_char(#{phone}) and ym=to_char(#{ym})
+	</select>
+	
+	<insert id="insertData" parameterType="map">
+		insert into package(num,phone,priceNum,TotalData,usingData,ym,price)
+		values(#{num},#{phone},#{priceNum},#{totalData},0,#{ym},#{price})
+	</insert>
+	
+	<select id="totalData" resultType="string" parameterType="int">
+		select gb from price where num=#{priceNum}
+	</select>
+	
+	<select id="info" resultType="com.exe.dto.PackageDTO" parameterType="map">
+		select totalData,usingData from package 
+		where phone=#{phone} and ym=#{ym}
+	</select>
+	
+	<select id="getProNum" parameterType="map" resultType="map">
+		select nvl(flo,0) flo, nvl(wavve,0) wavve, nvl(find,0) find from user_service
+		where phone=#{phone}
+	</select>
+	
+	<select id="getPrice" resultType="int" parameterType="map">
+		select nvl(sum(price),0) price from service
+		where num=to_number(#{FLO}) or num=to_number(#{WAVVE}) or num=to_number(#{FIND})
+	</select>
+	
+	<update id="senderData" parameterType="map">
+		update package set usingData=usingData+#{data}
+		where phone = #{phone}
+	</update>
+	
+	<update id="receiverData" parameterType="map">
+		update package set totalData = totalData+#{data}
+		where phone=#{phone}
+	</update>
+	
+</mapper>

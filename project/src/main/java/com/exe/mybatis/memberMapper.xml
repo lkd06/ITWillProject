@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-/mybatis.org/DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="membermapper">
+
+	<insert id="insertData" parameterType="com.exe.dto.MemberDTO">
+		insert into users (phone, pw, salt, name, birth, email, point,cardnum) 
+		values(#{phone},#{pw},#{salt},#{name},#{birth},#{email},0,#{cardnum})
+	</insert>
+	
+	<select id="findSalt" parameterType="String" resultType="String">
+		select salt from users where phone=to_char(#{phone})
+	</select>
+
+	<select id="getOneData" parameterType="com.exe.dto.MemberDTO" resultType="com.exe.dto.MemberDTO">
+		select phone,pw,salt,name,point,admin,priceNum,birth,cardnum,tmembergrade from users where (phone=to_char(#{phone})) and (pw=to_char(#{pw}))
+	</select>
+	
+	<update id="updatepriceinfo" parameterType="map">
+		update users set priceNum=#{num} where phone=to_char(#{mem.phone})
+	</update>
+
+	<select id="findMemInfo" parameterType="String" resultType="com.exe.dto.MemberDTO">
+		select u.phone,u.pw,u.name, u.email ,u.birth ,u.TmemberGrade ,u.point ,u.priceNum ,p.subject priceName
+		from users u,price p 
+		where phone=to_char(#{phone}) and p.num=u.priceNum
+	</select>
+
+	<delete id="deleteMem" parameterType="String">
+		delete users where phone=to_char(#{phone})
+	</delete>
+	
+	<update id="updateMem" parameterType="com.exe.dto.MemberDTO">
+		update users set pw=#{pw},email=#{email},name=#{name},salt=#{salt} where phone=#{phone}
+	</update>
+	
+	<select id="phoneCheck" resultType="int" parameterType="String">
+		select nvl(count(phone),0) from users where phone=to_char(#{phone})
+	</select>
+	
+	<update id="addPoint" parameterType="com.exe.dto.MemberDTO">
+		update users set point=point+#{point} where phone=to_char(#{phone})
+	</update>
+	
+	<select id="getReadData" parameterType="com.exe.dto.MemberDTO" resultType="com.exe.dto.MemberDTO">
+		select phone,salt,birth,name,point,TmemberGrade,email,admin from users where phone=to_char(#{phone})
+	</select>
+	
+	<select id="getLists" resultType="com.exe.dto.MemberDTO" parameterType="map">
+		select phone,pw,name,birth,email,TmemberGrade,point,admin from users
+	</select>
+	
+	<update id="updateGrade" parameterType="com.exe.dto.MemberDTO">
+		update users set TmemberGrade=#{TmemberGrade} where phone=to_char(#{phone})
+	</update>
+	
+	<update id="updateAdmin" parameterType="com.exe.dto.MemberDTO">
+		update users set admin=#{admin} where phone=to_char(#{phone})
+	</update>
+	
+	<update id="updatePoint" parameterType="com.exe.dto.MemberDTO">
+		update users set point=point-#{point} where phone=to_char(#{phone})
+	</update>
+	
+	<select id="serviceInfo" parameterType="String" resultType="com.exe.dto.UserServiceDTO">
+		select * from
+		(select u.phone, s.name name, u.flo servicename from service s inner join user_service u on s.num=u.flo 
+		union all 
+		select  u.phone, s.name name, u.wavve servicename from service s inner join user_service u on s.num=u.wavve
+		union all
+		select  u.phone, s.name name, u.find servicename from service s inner join user_service  u on s.num=u.find) where phone=#{phone}
+	</select>
+	
+	<update id="updateservice" parameterType="map">
+		update user_service set ${str}=0 where phone=#{phone} 
+	</update>
+	
+	<select id="findForPw" resultType="com.exe.dto.MemberDTO" parameterType="map">
+		select phone,pw,email,name,birth from users where phone=#{phone}
+	</select>
+</mapper>
