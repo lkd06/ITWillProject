@@ -57,7 +57,7 @@ public class MemberDAO {
 		
 		String salt = findSalt(dto.getPhone());
 		
-		if(salt.equals("") || salt==null) {
+		if(salt==null || salt.equals("")) {
 			return null;
 		}
 		
