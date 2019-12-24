@@ -20,6 +20,10 @@
 		select gb from price where num=#{priceNum}
 	</select>
 	
+	<select id="monthPrice" resultType="int" parameterType="int">
+		select price from price where num=#{priceNum}
+	</select>
+	
 	<select id="info" resultType="com.exe.dto.PackageDTO" parameterType="map">
 		select totalData,usingData from package 
 		where phone=#{phone} and ym=#{ym}

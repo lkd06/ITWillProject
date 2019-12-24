@@ -40,8 +40,9 @@ public class packageDAO {
 		
 		//제공될 DATA양 (MB기준으로)
 		String Data = sessionTemplate.selectOne("packmapper.totalData", priceNum);
+		int price = sessionTemplate.selectOne("packmapper.monthPrice", priceNum);
 		int totalData=1;
-
+		
 		if(Data.contains("GB")) {
 			totalData*=1024;
 		}
@@ -65,8 +66,8 @@ public class packageDAO {
 			fSer.put("FIND", 0);
 		}
 		
-		int price = sessionTemplate.selectOne("packmapper.getPrice",fSer);
-		
+		int p = sessionTemplate.selectOne("packmapper.getPrice",fSer);
+		price +=p;
 		map.put("price", price);
 		
 		sessionTemplate.insert("packmapper.insertData",map);
